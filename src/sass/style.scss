@@ -1,0 +1,673 @@
+@import "./components";
+@import "./colors";
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+	position: relative;
+	font-family: "Raleway", sans-serif;
+	font-size: 1.6rem;
+}
+
+.nav-mobile {
+	width: 100%;
+	&__main {
+		position: fixed;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		width: 100vw;
+		height: 80px;
+		z-index: 1000;
+	}
+
+	&__main--active {
+		background-color: rgba(0, 0, 0, 0.6);
+	}
+	.burger-btn {
+		margin-right: 0.5em;
+		padding: 10px 20px;
+		background: none;
+		border: none;
+		color: $pure-white;
+		font-size: 35px;
+		transition: scale 0.3s;
+
+		&:focus {
+			outline: none;
+			border: 1px solid $pure-white;
+			border-radius: 5px;
+		}
+
+		&:hover {
+			scale: 1.1;
+		}
+	}
+
+	&__logo-link {
+		text-decoration: none;
+	}
+
+	&__logo {
+		padding: 1em;
+		display: flex;
+		color: $pure-white;
+		font-size: 2.4rem;
+
+		i {
+			margin-right: 10px;
+		}
+	}
+	&__items {
+		position: fixed;
+		width: 100%;
+		height: 100vh;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		transform: translateX(100%);
+		background-color: rgb(255, 255, 255);
+		transition: transform 0.3s;
+		z-index: 100;
+	}
+
+	&__item {
+		position: relative;
+		padding: 1em;
+		margin: 0 auto;
+		font-size: 1.8rem;
+		text-decoration: none;
+		color: $dark-green;
+		text-transform: uppercase;
+
+		&::after {
+			position: absolute;
+			bottom: 5px;
+			left: 0;
+			width: 100%;
+			height: 1px;
+			transform: scaleX(0);
+			background-color: $dark-green;
+			transition: transform 0.3s;
+			content: "";
+		}
+
+		&:hover::after {
+			transform: scaleX(1);
+		}
+	}
+
+	&--active {
+		position: fixed;
+		transform: translateX(0);
+	}
+}
+
+.header {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	height: 100vh;
+	background-image: url(/dist/img/jungle-min.jpg);
+	background-size: cover;
+	background-position: 0;
+	color: $pure-white;
+
+	&__text {
+		z-index: 10;
+
+		p {
+			padding: 0 20px;
+			font-size: 18px;
+			opacity: 0;
+			animation-name: headerTextEntrance;
+			animation-duration: 2s;
+			animation-fill-mode: forwards;
+		}
+
+		h1 {
+			padding: 5px 20px;
+			font-size: 3.2rem;
+			opacity: 0;
+			animation-name: headerTextEntrance;
+			animation-duration: 2s;
+			animation-delay: 0.5s;
+			animation-fill-mode: forwards;
+		}
+	}
+
+	@keyframes headerTextEntrance {
+		0% {
+			opacity: 0;
+		}
+
+		100% {
+			opacity: 1;
+		}
+	}
+
+	.shadow {
+		position: absolute;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.6);
+	}
+
+	&--otheroffers {
+		background-image: url(/dist/img/water-min.jpg);
+	}
+
+	&--contact {
+		background-image: url(/dist/img/girl-min.jpg);
+		background-position: center;
+	}
+}
+
+.about-us {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	scroll-margin-top: 80px;
+
+	&__info {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	&__img {
+		padding: 0 2em;
+		width: 100%;
+	}
+
+	&__text {
+		padding: 2em;
+		text-align: justify;
+		line-height: 1.5;
+
+		h3 {
+			margin-bottom: 10px;
+			font-weight: bold;
+		}
+
+		a {
+			cursor: pointer;
+			text-decoration: none;
+			font-weight: 700;
+			color: $dark-green;
+			transition: color 0.3s;
+		}
+
+		a:visited {
+			color: $dark-green;
+		}
+
+		a:hover {
+			color: $light-green;
+		}
+	}
+}
+
+.adventure-section {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	height: 100vh;
+	background-image: url(/dist/img/girl-min.jpg);
+	background-size: cover;
+	background-position: center;
+	&__shadow {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.4);
+	}
+	&__text {
+		padding: 10px;
+		color: $pure-white;
+		border: 1px solid $pure-white;
+		z-index: 10;
+	}
+}
+
+.offer {
+	scroll-margin-top: 130px;
+
+	&__call-to-action {
+		text-align: center;
+	}
+	&__cards {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	&__card {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		margin: 2em;
+		padding: 10px;
+		width: 70%;
+		box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+		border-radius: 5px;
+		transition: scale 0.3s;
+
+		&:hover {
+			scale: 1.05;
+		}
+	}
+
+	&__card-title {
+		padding-top: 10px;
+		font-size: 2rem;
+		text-align: center;
+	}
+
+	&__card-special {
+		padding: 20px 10px;
+		text-align: center;
+		font-size: 1.4rem;
+		color: $light-green;
+		font-weight: 700;
+	}
+
+	&__card-price {
+		margin: 10px 0;
+		font-size: 4rem;
+		font-weight: 700;
+	}
+
+	&__card-options {
+		list-style: none;
+		li {
+			padding: 5px;
+			color: $unactive-text;
+		}
+
+		span {
+			color: $light-green;
+		}
+
+		.active {
+			color: black;
+		}
+	}
+
+	&__card-button {
+		padding: 10px 20px;
+		margin: 20px;
+		width: 70%;
+		cursor: pointer;
+		border: none;
+		box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+		border-radius: 5px;
+		font-size: 1.6rem;
+		color: black;
+		font-family: inherit;
+		transition: background-color 0.3s, color 0.3s, scale 0.3s;
+
+		&:hover {
+			background-color: $light-green;
+			color: $pure-white;
+			scale: 1.1;
+		}
+	}
+
+	&__other-offers {
+		text-align: center;
+		button {
+			padding: 20px 40px;
+			margin-bottom: 3em;
+			background-color: $prefered-green;
+			font-size: 1.8rem;
+			font-weight: bold;
+		}
+	}
+
+	.prefered {
+		background-color: $prefered-green;
+
+		&:hover {
+			background-color: $light-green;
+		}
+	}
+}
+
+.footer {
+	background-color: $light-grey;
+	&__body {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		padding: 1em;
+	}
+	&__logo {
+		display: flex;
+		padding: 1em;
+		font-size: 2.4rem;
+		i {
+			padding-right: 10px;
+		}
+	}
+
+	&__info {
+		display: flex;
+		justify-content: space-around;
+		width: 100%;
+	}
+
+	&__about-us,
+	&__our-company,
+	&__documents {
+		display: flex;
+		flex-direction: column;
+
+		h4 {
+			font-size: 1.8rem;
+			margin-bottom: 0.5em;
+		}
+
+		a {
+			padding: 0.3em 0;
+			text-decoration: none;
+			color: black;
+			transition: color 0.3s;
+		}
+
+		a:hover {
+			color: $light-green;
+		}
+	}
+
+	&__copy {
+		text-align: center;
+		padding: 2em;
+		border-top: 1px solid #9e9e9e;
+	}
+}
+
+// other offers site styles------------------------------------------------
+
+.offer-h1 {
+	text-align: center;
+	margin-top: 2em;
+}
+
+.special-offers {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.offer__contact-button {
+	text-decoration: none;
+	text-align: center;
+	background-color: #eee;
+}
+
+// contact site styles ---------------------------------------
+
+.contact-site {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	margin-bottom: 2em;
+
+	h3 {
+		margin-bottom: 1em;
+	}
+	&__form {
+		position: relative;
+		padding: 3em;
+		width: 80%;
+		border: 1px solid black;
+		border-radius: 5px;
+	}
+
+	&__form-box {
+		display: flex;
+		flex-direction: column;
+		margin: 1em 0;
+
+		label {
+			font-size: 1.8rem;
+			margin-bottom: 0.5em;
+		}
+
+		textarea {
+			min-height: 200px;
+			resize: vertical;
+		}
+
+		input,
+		textarea {
+			padding: 1em;
+			font-size: 1.6rem;
+			font-family: inherit;
+		}
+	}
+
+	&__error {
+		margin-top: 0.5rem;
+		color: red;
+		font-size: 1.4rem;
+		font-weight: 400;
+	}
+
+	&__button {
+		padding: 1em 2em;
+		width: 100%;
+		border: none;
+		cursor: pointer;
+		background-color: $prefered-green;
+		color: #000;
+		border-radius: 5px;
+		font-size: 1.6rem;
+		font-family: inherit;
+		transition: background-color 0.3s, color 0.3s;
+
+		&:hover {
+			background-color: $light-green;
+			color: $pure-white;
+		}
+	}
+
+	&__msg-status {
+		display: none;
+		flex-direction: column;
+		align-items: center;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		padding: 3em;
+		width: 80%;
+		text-align: center;
+		border-radius: 5px;
+		background-color: $light-green;
+	}
+
+	&__close-btn {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 10px 20px;
+		margin-top: 1em;
+		font-family: inherit;
+		font-size: 1.4rem;
+		border-radius: 5px;
+		border: none;
+		color: #000;
+		cursor: pointer;
+		transition: transform 0.3s;
+		&:hover {
+			transform: scale(1.1);
+		}
+	}
+}
+
+.contact-data {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	p,
+	b {
+		padding-bottom: 10px;
+	}
+}
+
+.how-to-get-there {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 3em;
+	overflow: hidden;
+	width: 100%;
+	.map {
+		width: 100%;
+		text-align: center;
+	}
+}
+
+// MEDIA QUERIES ----------------------------
+
+@media (max-width: 767px) {
+	.nav-desktop {
+		display: none;
+	}
+}
+@media (min-width: 768px) {
+	body {
+		scroll-margin-top: 64px;
+	}
+	.nav-mobile {
+		display: none;
+	}
+	.nav-desktop {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		height: 64px;
+		width: 100%;
+		position: fixed;
+		top: 0;
+		left: 0;
+		overflow: hidden;
+		background-color: #fff;
+		z-index: 1000000;
+
+		&__logo-link {
+			text-decoration: none;
+		}
+
+		&__logo {
+			display: flex;
+			padding: 1em;
+			color: #000;
+			font-size: 2.4rem;
+
+			i {
+				margin-right: 0.5em;
+			}
+		}
+
+		&__items {
+			padding: 1em;
+		}
+
+		&__item {
+			padding: 1.5em;
+			text-decoration: none;
+			color: #000;
+			transition: color 0.3s, background-color 0.3s;
+			&:hover {
+				background-color: #000;
+				color: $pure-white;
+			}
+		}
+	}
+
+	.scrollspy-active {
+		background-color: #000;
+		color: $pure-white;
+	}
+
+	.header {
+		position: relative;
+		height: 500px;
+		z-index: 0;
+	}
+
+	.about-us {
+		scroll-padding-top: 64px;
+	}
+
+	.adventure-section {
+		height: 500px;
+	}
+}
+
+@media (min-width: 992px) {
+	.header {
+		justify-content: center;
+		height: 300px;
+
+		&__text {
+			margin: 0 5em;
+		}
+	}
+
+	.about-us {
+		&__info {
+			flex-direction: row;
+			width: 100%;
+			align-items: start;
+			padding: 2em 1em;
+		}
+
+		&__img {
+			width: 600px;
+		}
+
+		&__text {
+			padding-top: 0;
+		}
+	}
+
+	.adventure-section {
+		height: 200px;
+	}
+
+	.offer {
+		&__cards {
+			flex-direction: row;
+			padding: 0 1em;
+		}
+	}
+
+	.contact-site {
+		&__form {
+			width: 600px;
+		}
+	}
+}
