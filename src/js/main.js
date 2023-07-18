@@ -54,11 +54,10 @@ const handleScrollSpy = () => {
 					`[href*="${sections[0].id}"]`
 				);
 				
-
 				allDesktopItems.forEach(item => {
 					item.classList.remove("scrollspy-active");
 				});
-
+				
 				activeSection.classList.add("scrollspy-active");
 			}
 		});
