@@ -48,15 +48,14 @@ const handleScrollSpy = () => {
 		scrollSpySections.forEach(section => {
 			if (window.scrollY <= section.offsetTop + section.offsetHeight) {
 				sections.push(section);
-				console.log(sections);
 
 				const activeSection = document.querySelector(
 					`[href*="${sections[0].id}"]`
 				);
 
-				allDesktopItems.forEach(item => {
-					item.classList.remove("scrollspy-active");
-				});
+				allDesktopItems.forEach(item =>
+					item.classList.remove("scrollspy-active")
+				);
 
 				activeSection.classList.add("scrollspy-active");
 			}
