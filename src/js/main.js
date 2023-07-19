@@ -63,7 +63,7 @@ const handleScrollSpy = () => {
 	}
 };
 
-if (!(document.body.classList.contains("main-page"))) {
+if (!document.body.classList.contains("main-page")) {
 	allDesktopItems.forEach(el => {
 		el.classList.remove("scrollspy-active");
 	});
