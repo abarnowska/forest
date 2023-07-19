@@ -53,16 +53,22 @@ const handleScrollSpy = () => {
 				const activeSection = document.querySelector(
 					`[href*="${sections[0].id}"]`
 				);
-				
+
 				allDesktopItems.forEach(item => {
 					item.classList.remove("scrollspy-active");
 				});
-				
+
 				activeSection.classList.add("scrollspy-active");
 			}
 		});
 	}
 };
+
+if (!document.body.classList.contains("main-page")) {
+	allDesktopItems.forEach(el => {
+		el.classList.remove("scrollspy-active");
+	});
+}
 
 burgerBtn.addEventListener("click", showNav);
 window.addEventListener("scroll", showMainNav);

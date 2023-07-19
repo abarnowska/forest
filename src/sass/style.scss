@@ -183,7 +183,7 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	scroll-margin-top: 80px;
+	scroll-margin-top: 64px;
 
 	&__info {
 		display: flex;
@@ -248,7 +248,7 @@ body {
 }
 
 .offer {
-	scroll-margin-top: 130px;
+	scroll-margin-top: 64px;
 
 	&__call-to-action {
 		text-align: center;
@@ -565,11 +565,11 @@ body {
 		display: none;
 	}
 	.nav-desktop {
-		height: 64px;
 		width: 100%;
 		position: fixed;
 		top: 0;
 		left: 0;
+		padding: 0 2em;
 		overflow: hidden;
 		background-color: #fff;
 		z-index: 1000000;
@@ -578,6 +578,7 @@ body {
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
+			height: 64px;
 		}
 
 		&__logo-link {
@@ -586,7 +587,6 @@ body {
 
 		&__logo {
 			display: flex;
-			padding: 1em;
 			color: #000;
 			font-size: 2.4rem;
 
@@ -677,9 +677,8 @@ body {
 		}
 	}
 	.header {
-
 		background-image: url(../img/jungle.jpg);
-		
+
 		&--otheroffers {
 			background-image: url(../img/water.jpg);
 		}
