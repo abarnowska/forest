@@ -13,8 +13,11 @@ const showNav = () => {
 	if (menu.classList.contains("show-menu")) {
 		burgerBtn.innerHTML = '<i class="fa-solid fa-xmark"></i>';
 		burgerBtn.style.color = "rgb(2, 70, 2)";
+		allNavItems.forEach(item => item.classList.remove("navbar__item--active"));
+		document.body.style.overflow = "hidden";
 	} else {
 		burgerBtn.innerHTML = '<i class="fa-solid fa-bars"></i>';
+		document.body.style.overflow = "auto";
 	}
 };
 
@@ -46,8 +49,6 @@ const handleScrollSpy = () => {
 		});
 	}
 };
-
-console.log(allNavItems[0].parentElement);
 
 const handleCurrentYear = () => {
 	const year = new Date().getFullYear();
