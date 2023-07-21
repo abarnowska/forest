@@ -10,13 +10,14 @@ const footerYear = document.querySelector(".footer__year");
 const showNav = () => {
 	menu.classList.toggle("show-menu");
 
-
 	if (menu.classList.contains("show-menu")) {
 		burgerBtn.innerHTML = '<i class="fa-solid fa-xmark"></i>';
 		burgerBtn.style.color = "rgb(2, 70, 2)";
 		allNavItems.forEach(item => item.classList.remove("navbar__item--active"));
+		document.body.classList.add("sticky-body");
 	} else {
 		burgerBtn.innerHTML = '<i class="fa-solid fa-bars"></i>';
+		document.body.classList.remove("sticky-body");
 	}
 };
 
@@ -24,6 +25,7 @@ allNavItems.forEach(item =>
 	item.addEventListener("click", () => {
 		menu.classList.remove("show-menu");
 		burgerBtn.innerHTML = '<i class="fa-solid fa-bars"></i>';
+		document.body.classList.remove("sticky-body");
 	})
 );
 
